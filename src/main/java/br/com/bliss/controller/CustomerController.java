@@ -9,7 +9,9 @@ public class CustomerController {
 	public String getModule() {
 		return "customer";
 	}
-	
+
+
+
 	@RequestMapping("/home")
 	public String home() {
 		return getModule() +"/index";
