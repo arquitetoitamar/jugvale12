@@ -10,6 +10,10 @@ public class CustomerController {
 		return "customer";
 	}
 
+	@RequestMapping("/versao")
+	public String versao() {
+		return "Versao 1";
+	}
 
 
 	@RequestMapping("/home")

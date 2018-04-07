@@ -36,7 +36,7 @@ crudApp.controller("DbController", [
 				$('#editForm').css('display', 'none');
 			}
 			$scope.insertInfo = function(info) {
-				$http.post('employer', JSON.stringify(info)).success(function(data) {
+				$http.post('customers', JSON.stringify(info)).success(function(data) {
 					if (data == true) {
 						getInfo();
 						$('#empForm').css('display', 'none');
@@ -52,7 +52,7 @@ crudApp.controller("DbController", [
 				detail.emp_id = $scope.format(detail.$$hashKey);
 				detail.$$hashKey = null;
 				console.log("excluindo: "+JSON.stringify(detail));
-				$http.delete('/employer', JSON.stringify(detail)).success(function(data) {
+				$http.delete('/customers', JSON.stringify(detail)).success(function(data) {
 					if (data == true) {
 						getInfo();
 					}
@@ -65,7 +65,7 @@ crudApp.controller("DbController", [
 				$('#editForm').slideToggle();
 			}
 			$scope.UpdateInfo = function(detail) {
-				$http.post('/employer', JSON.stringify(detail)).success(function(data) {
+				$http.post('/customers', JSON.stringify(detail)).success(function(data) {
 					$scope.show_form = true;
 					if (data == true) {
 						getInfo();
