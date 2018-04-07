@@ -43,7 +43,7 @@ public class Customer implements Serializable {
 	@Column(name = "sexo")
 	private String gender;
 
-	@Column(nullable = false, length = 20)
+	@Column(length = 20)
 	private String document;
 
 	@Column
@@ -52,7 +52,7 @@ public class Customer implements Serializable {
 	@Column
 	private String note;
 
-	@Column(name = "CREATE_DATE", nullable = true)
+	@Column(name = "CREATE_DATE")
 	private String createDate;
 
 	public String getNickname() {
