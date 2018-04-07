@@ -1,6 +1,6 @@
 FROM java:8
 VOLUME /tmp
-ADD backoffice.jar app.jar
+ADD api.jar app.jar
 RUN sh -c 'touch /app.jar'
 EXPOSE 9001:9001
 ENV JAVA_OPTS=""

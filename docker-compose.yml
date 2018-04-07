@@ -1,0 +1,5 @@
+web:
+  build: .
+  dockerfile: Dockerfile
+  ports:
+    - 9001:9001
