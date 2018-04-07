@@ -52,7 +52,7 @@ public class Customer implements Serializable {
 	@Column
 	private String note;
 
-	@Column(name = "CREATE_DATE", nullable = false)
+	@Column(name = "CREATE_DATE", nullable = true)
 	private String createDate;
 
 	public String getNickname() {
