@@ -1,0 +1,90 @@
+<html ng-app="crudApp">
+<head>
+<title>AngularJS CRUD Operations</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Include Bootstrap CSS -->
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<!-- Include main CSS -->
+<link rel="stylesheet" type="text/css" href="css/style.css">
+
+</head>
+<body>
+	<div class="container wrapper" ng-controller="DbController">
+		<h1 class="text-center">Lista de Clientes</h1>
+		<nav class="navbar navbar-default">
+			<div class="navbar-header">
+				<div class="alert alert-default navbar-brand search-box">
+					<button class="btn btn-primary" ng-show="show_form"
+						ng-click="formToggle()">
+						Add Employee <span class="glyphicon glyphicon-plus"
+							aria-hidden="true"></span>
+					</button>
+				</div>
+				<div class="alert alert-default input-group search-box">
+					<span class="input-group-btn"> <input type="text"
+						class="form-control"
+						placeholder="Search Employee Details Into Database..."
+						ng-model="search_query"></input>
+					</span>
+				</div>
+			</div>
+		</nav>
+		<div class="col-md-6 col-md-offset-3">
+
+			<!-- Include form template which is used to insert data into database -->
+			<div ng-include src="'form'"></div>
+
+			<!-- Include form template which is used to edit and update data into database -->
+			<div ng-include src="'editForm'"></div>
+		</div>
+		<div class="clearfix"></div>
+
+		<!-- Table to show employee detalis -->
+		<div class="table-responsive">
+			<table class="table table-hover" id="table">
+				<tr>
+					<th>id</th>
+					<th>tipo</th>
+					<th>sku-pai</th>
+					<th>Gender</th>
+					<th>Address</th>
+					<th></th>
+					<th></th>
+				</tr>
+				<tr ng-repeat="detail in details | filter:search_query">
+					<td><span>{{detail.emp_id}} </span></td>
+					<td>{{detail.name}}</td>
+					<td>{{detail.email}}</td>
+					<td>{{detail.gender}}</td>
+					<td>{{detail.address}}</td>
+					<td>
+						<button class="btn btn-warning" ng-click="editInfo(detail)"
+							title="Edit">
+							<span class="glyphicon glyphicon-edit"></span>
+						</button>
+					</td>
+					<td>
+						<button class="btn btn-danger" ng-click="deleteInfo(detail)"
+							title="Delete">
+							<span class="glyphicon glyphicon-trash"></span>
+						</button>
+						
+					</td>
+				</tr>
+			</table>
+		</div>
+		<button class="btn btn-link" ng-click="exportToExcel('#table')">
+        <span class="glyphicon glyphicon-share"></span> Export to Excel
+    </button>
+	</div>
+	<!-- Include jQuery library -->
+<script src="js/jQuery/jquery.min.js"></script>
+<!-- Include AngularJS library -->
+<script src="lib/angular/angular.min.js"></script>
+<!-- Include Bootstrap Javascript -->
+<script src="js/bootstrap.min.js"></script>
+
+	<!-- Include controller -->
+	<script src="js/angular-script.js"></script>
+</body>
+</html>
