@@ -1,14 +1,9 @@
-pipeline {
-  agent any
-    tools { 
-        maven 'Maven 3.3.9' 
-        jdk 'jdk8' 
+node {
+    checkout scm
+
+    def customImage = docker.build("my-image:${env.BUILD_ID}")
+
+    customImage.inside {
+        sh 'make test'
     }
-  stages {
-    stage('Build') {
-      steps {
-        sh 'mvn clean install'
-      }
-    }
-  }
 }
