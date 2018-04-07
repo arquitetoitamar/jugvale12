@@ -4,7 +4,7 @@
 	<groupId>br.com.jug</groupId>
 	<artifactId>api</artifactId>
 	<version>1.0.0</version>
-	<name>Spring Data Rest + AngularJS app for Laporta</name>
+	<name>Spring Data Rest + AngularJS app for JugVale</name>
 	<description>This project uses Spring Data Rest and AngularJS to perform CRUD operations against MySql Database.</description>
 	<parent>
 		<groupId>org.springframework.boot</groupId>
@@ -91,6 +91,11 @@
 				<configuration>
 					<composeFile>${project.basedir}/docker-compose.yml</composeFile>
 				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.sonarsource.scanner.maven</groupId>
+				<artifactId>sonar-maven-plugin</artifactId>
+				<version>3.4.0.905</version>
 			</plugin>
 		<plugin>
             <groupId>com.spotify</groupId>
